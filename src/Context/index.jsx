@@ -15,23 +15,37 @@ export const ElectroShoppingProvider = ({children}) =>{
     const [condition,setCondition] = useState('descripcion');
 
      useEffect(() => {
-        axios.get(`http://localhost:4000/api/productos/buscarProducto/textoVacio/descripcion`)
+        axios.get(`http://192.168.0.101:4000/api/productos/buscarProducto/textoVacio/descripcion`)
         .then(response => response.data)
         .then(data => setListOfProducts(data))
      }, []);
 
      useEffect(() => {
-        axios.get(`http://localhost:4000/api/productos/buscarProducto/${searchByDescription}/${condition}`)
+        axios.get(`http://192.168.0.101:4000/api/productos/buscarProducto/${searchByDescription}/${condition}`)
         .then(response => response.data)
         .then(data => setListOfProducts(data))
      }, [searchByDescription,condition]);
     
+     //Lo usamos para abrir el sideMenu
+     const [openSideMenu,setOpenSideMenu] = useState(false);
+
+
+     const [productToShow,setProductToShow] = useState({
+        descripcion:"",
+        category:"",
+        codigo:"",
+        precio:0,
+        img:"",
+        marca:""
+     })
 
     return(
         <ElectroShoppingContext.Provider value={{
             listOfProducts,setListOfProducts,
             searchByDescription,setSearchByDescription,
-            condition,setCondition
+            condition,setCondition,
+            openSideMenu,setOpenSideMenu,
+            productToShow,setProductToShow
         }}>
             {children}
         </ElectroShoppingContext.Provider>

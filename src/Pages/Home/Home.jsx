@@ -2,12 +2,14 @@ import { useContext } from "react"
 import Layout from "../../Components/Layout/Layout"
 import { ElectroShoppingContext } from "../../Context"
 import Card from "../../Components/Card/Card";
+import AsideMenu from '../../Components/AsideMenu/AsideMenu'
 
 const Home = () => {
 
   const {listOfProducts,setSearchByDescription,setCondition} = useContext(ElectroShoppingContext);
 
   return (
+    
     <Layout>
       <h2 className="text-xl font-bold">Productos Exclusivos</h2>
       <div className="flex justify-between gap-2 mb-3">
@@ -27,10 +29,13 @@ const Home = () => {
           codigo={elem._id}
           category={elem.rubro}
           marca={elem.marca}
+          oferta={elem.oferta}
+          precioOferta={elem.precioOferta}
           imgURL={"http://192.168.0.101:4000/api/productos/"+ elem._id + "/image"}
           />
         ))}
-      </div>
+     </div>
+     <AsideMenu/>
     </Layout>
   )
 }
