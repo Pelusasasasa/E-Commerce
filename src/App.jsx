@@ -7,6 +7,7 @@ import NavBar from './Components/NavBar/NavBar';
 import Footer from './Components/Footer/Footer';
 import {  ElectroShoppingProvider } from './Context';
 import Marcas from './Pages/Marcas/Marcas';
+import Ofertas from './Pages/Ofertas/Ofertas';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       {path:'/Exterior',element: <Home/>},
       {path:'/Iluminacion',element: <Home/>},
       
+      {path:'/ofertas',element:<Ofertas/>},
       {path:'/marcas',element: <Marcas/>},
       {path:'/*',element: <NotFound/>}
     ]);

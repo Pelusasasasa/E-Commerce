@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import {ArrowDownIcon,ArrowUpIcon} from '@heroicons/react/24/solid'
+import {ChevronDownIcon,ChevronUpIcon} from '@heroicons/react/24/solid'
 import { useRef, useState } from 'react';
 
 const NavBar = () => {
@@ -9,9 +9,9 @@ const listaCategorias = useRef('listaCategorias');
 
 function renderArrow() {
   if (arrowDown) {
-    return <ArrowDownIcon className='h-4 w-4 text-black'></ArrowDownIcon>
+    return <ChevronDownIcon className='h-4 w-4 text-black'></ChevronDownIcon>
   }else{
-    return <ArrowUpIcon className='h-4 w-4 text-black'></ArrowUpIcon>
+    return <ChevronUpIcon className='h-4 w-4 text-black'></ChevronUpIcon>
   }
 }
 
@@ -26,7 +26,7 @@ function  handleMenu() {
       <ul className='flex gap-3 w-1/2 items-center'>
         <li><NavLink to='/' className='text-2xl'><span>Electro </span><span className='text-yellow-100'> Avenida</span></NavLink></li>
         <li className='flex flex-col relative cursor-pointer'>
-          <div onClick={(e)=>{handleMenu(e)}} className='text-xl flex  items-center justify-between'>
+          <div onClick={(e)=>{handleMenu(e)}} className='text-xl flex  items-center gap-2 justify-between'>
             <p>Categorias</p>
             {renderArrow()}
           </div>
@@ -37,6 +37,7 @@ function  handleMenu() {
             <li className='inline-block hover:bg-slate-300 text-center w-full'><NavLink to='/Iluminacion' className='text-xl font-bold'>Iluminacion</NavLink></li>
           </ul>
         </li>
+        <li className='text-xl'><NavLink to='/ofertas' className='py-0.5 px-2'>Ofertas</NavLink></li>
         <li className='text-xl'><NavLink to='/marcas' className='py-0.5 px-2'>Marcas</NavLink></li>
       </ul>
       <ul></ul>
